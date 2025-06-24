@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 2742588003701534790}
   - component: {fileID: 397961994280703228}
   - component: {fileID: 2083944974300305842}
+  - component: {fileID: -3646227581282792711}
   m_Layer: 5
   m_Name: AssistantChatBox
   m_TagString: Untagged
@@ -257,6 +258,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &-3646227581282792711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6970670432906471529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177bb5ef135cadc41837fe302b1ce7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextUI: {fileID: 4123284123983519328}
 --- !u!1 &9150226429063802840
 GameObject:
   m_ObjectHideFlags: 0
