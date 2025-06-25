@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 public class UI_Chat : MonoBehaviour
 {
@@ -51,20 +52,13 @@ public class UI_Chat : MonoBehaviour
 
     private async void RefreshLayout()
     {
-        float beforeHeight = _chatBoxRectTransform.rect.height;
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(_chatBoxRectTransform);
 
-        Task task = new Task(() => 
-        {
-            while (true)
-            {
-                if (beforeHeight != _chatBoxRectTransform.rect.height) break;
-            }
-        });
+        await Task.Yield();
+        await Task.Yield();
+        await Task.Yield();
 
-        task.Start();
-        await task;
         ChatScrollRect.verticalNormalizedPosition = 0f;
     }
 }
