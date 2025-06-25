@@ -75,3 +75,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Keys/OPENAI.cs
 Assets/Keys/OPENAI.cs.meta
+Assets/Keys/TYPECAST.cs
+Assets/Keys/TYPECAST.cs.meta

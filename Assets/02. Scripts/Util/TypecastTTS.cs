@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 
 public class TypecastTTS
 {
-    private const string API_KEY = "__pltFnBf8fX8RMaMNyvGTD75L3yhBV8Mz8hUQ5kD4NRX";
     private const string VOICE_ID = "63a3d9da4b235ddd6541a795";
 
     public static async Task<AudioClip> GetTTSClip(string text)
@@ -48,7 +47,7 @@ public class TypecastTTS
         using (var request = new UnityWebRequest(urlPost, "POST"))
         {
             request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("Authorization", $"Bearer {API_KEY}");
+            request.SetRequestHeader("Authorization", $"Bearer {TYPECAST.API_KEY}");
             request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(body));
             request.downloadHandler = new DownloadHandlerBuffer();
 
