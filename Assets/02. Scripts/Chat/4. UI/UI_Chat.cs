@@ -51,13 +51,20 @@ public class UI_Chat : MonoBehaviour
 
     private async void RefreshLayout()
     {
-        await Task.Yield();
+        float beforeHeight = _chatBoxRectTransform.rect.height;
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(_chatBoxRectTransform);
-        await Task.Yield();
-        await Task.Yield();
-        await Task.Yield();
-        await Task.Yield();
+
+        Task task = new Task(() => 
+        {
+            while (true)
+            {
+                if (beforeHeight != _chatBoxRectTransform.rect.height) break;
+            }
+        });
+
+        task.Start();
+        await task;
         ChatScrollRect.verticalNormalizedPosition = 0f;
     }
 }
