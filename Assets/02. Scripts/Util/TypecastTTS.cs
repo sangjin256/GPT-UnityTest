@@ -66,7 +66,7 @@ public class TypecastTTS
             {
                 using (var statusReq = UnityWebRequest.Get(statusUrl))
                 {
-                    statusReq.SetRequestHeader("Authorization", $"Bearer {API_KEY}");
+                    statusReq.SetRequestHeader("Authorization", $"Bearer {TYPECAST.API_KEY}");
                     await statusReq.SendWebRequest();
 
                     if (statusReq.result != UnityWebRequest.Result.Success)
