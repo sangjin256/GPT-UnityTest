@@ -71,7 +71,7 @@ public class ChatGPTTest : MonoBehaviour
         ResultTextUI.text = npcResponse.ReplyMessage;
         PromptField.text = string.Empty;
 
-        await TypecastTTS.PlayTypecastTTS(npcResponse.ReplyMessage, MyAudioSource);
+        //await TypecastTTS.GetTTSClip(npcResponse.ReplyMessage, MyAudioSource);
         //await PlayTTS(npcResponse.ReplyMessage);
         //await GenerateImage(npcResponse.StoryImageDescription);
 

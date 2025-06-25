@@ -7,6 +7,7 @@ public class UI_Chat : MonoBehaviour
 {
     public TMP_InputField InputField;
     public ScrollRect ChatScrollRect;
+    public RawImage RawImage;
 
     public GameObject UserChatBoxPrefab;
     public GameObject OtherChatBoxPrefab;
@@ -35,9 +36,17 @@ public class UI_Chat : MonoBehaviour
 
         ChatDTO replyDTO = await ChatManager.Instance.GetReply(sendText);
 
+        ChatManager.Instance.PlayTTS(replyDTO.ReplyMessage);
+
         UI_ChatBox OtherChatBox = Instantiate(OtherChatBoxPrefab, ChatBoxParent).GetComponent<UI_ChatBox>();
-        OtherChatBox.Init($"{replyDTO.ReplyMessage}\n\n우호도 : {replyDTO.Friendliness}");
+        OtherChatBox.Init($"{replyDTO.ReplyMessage}\n\n진척도 : {replyDTO.Progress}");
         RefreshLayout();
+
+        Texture texture = await ChatManager.Instance.GetImage(replyDTO);
+        if(texture != null)
+        {
+            RawImage.texture = texture;
+        }
     }
 
     private async void RefreshLayout()
@@ -45,6 +54,9 @@ public class UI_Chat : MonoBehaviour
         await Task.Yield();
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(_chatBoxRectTransform);
+        await Task.Yield();
+        await Task.Yield();
+        await Task.Yield();
         await Task.Yield();
         ChatScrollRect.verticalNormalizedPosition = 0f;
     }

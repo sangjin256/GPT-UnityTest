@@ -7,23 +7,20 @@ public class ChatDTO
 {
     [JsonProperty("ReplyMesssage")]
     public string ReplyMessage { get; set; }
-    [JsonProperty("Appearance")]
-    public string Appearance { get; set; }
-    [JsonProperty("Emotion")]
-    public string Emotion { get; set; }
+    [JsonProperty("Progress")]
+    public string Progress { get; set; }
+    [JsonProperty("AddedFeature")]
+    public string AddedFeature { get; set; }
     [JsonProperty("StoryImageDescription")]
     public string StoryImageDescription { get; set; }
-    [JsonProperty("Friendliness")]
-    public string Friendliness { get; set; }
 
     public ChatDTO() { }
 
-    public ChatDTO(string replyMessage, string appearance, string emotion, string storyImageDescription, string friendliness)
+    public ChatDTO(string replyMessage, string progress, string addedFeature, string storyImageDescription)
     {
         ReplyMessage = replyMessage;
-        Appearance = appearance;
-        Emotion = emotion;
+        Progress = progress;
+        AddedFeature = addedFeature;
         StoryImageDescription = storyImageDescription;
-        Friendliness = friendliness;
-    }   
+    }
 }
